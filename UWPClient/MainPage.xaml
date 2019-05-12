@@ -6,9 +6,23 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Width="1600" Height="900">
 
     <Grid>
+        <!-- Root Navigation -->
+        <NavigationView x:Name="RootNavigationView" PaneDisplayMode="Top" IsBackButtonVisible="Collapsed" Loaded="RootNavigationView_Loaded" ItemInvoked="RootNavigationView_ItemInvoked">
+            <NavigationView.PaneHeader>
+                <TextBlock Text="Triping" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="12,0,12,0" FontSize="16" />
+            </NavigationView.PaneHeader>
 
+            <NavigationView.MenuItems>
+                <NavigationViewItem Tag="home" Icon="Home" Content="Home" />
+                <NavigationViewItem Tag="characters" Icon="People" Content="Characters" />
+                <NavigationViewItem Tag="client" Icon="Page2" Content="PL" />
+                <NavigationViewItem Tag="host" Icon="Page" Content="GM" />
+            </NavigationView.MenuItems>
+
+            <Frame x:Name="RootContentFrame" />
+        </NavigationView>
     </Grid>
 </Page>
