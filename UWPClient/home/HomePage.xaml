@@ -8,8 +8,8 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-    <Grid>
-        <TextBlock HorizontalAlignment="Left" Margin="0,0,0,0" Text="HomePage" TextWrapping="Wrap" VerticalAlignment="Top"/>
+    <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
+        <TextBlock HorizontalAlignment="Center" Margin="0,0,0,0" Text="TRiPinG" TextWrapping="Wrap" VerticalAlignment="Center" FontSize="48"/>
 
     </Grid>
 </Page>
