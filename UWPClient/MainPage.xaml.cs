@@ -20,7 +20,7 @@ namespace UWPClient {
 	/// </summary>
 	public sealed partial class MainPage : Page {
 
-		private readonly List<(string Tag, Type Page)> rootTabs = new List<(string Tag, Type Page)>
+		private readonly List<(string Tag, Type Page)> _rootTabs = new List<(string Tag, Type Page)>
 		{
 			("home", typeof(HomePage)),
 			("characters", typeof(CharacterListPage)),
@@ -45,7 +45,7 @@ namespace UWPClient {
 		/// <param name="navItemTag"></param>
 		/// <param name="transitionInfo"></param>
 		private void NavigateRootContent(string navItemTag, NavigationTransitionInfo transitionInfo){
-			Type page = rootTabs.FirstOrDefault(p => p.Tag.Equals(navItemTag)).Page;
+			Type page = _rootTabs.FirstOrDefault(p => p.Tag.Equals(navItemTag)).Page;
 
 			// 画面が違う場合のみ遷移を実行する。
 			var preNavPageType = RootContentFrame.CurrentSourcePageType;
@@ -94,7 +94,7 @@ namespace UWPClient {
 			if(RootContentFrame.SourcePageType == typeof(SettingPage)){
 				RootNavigationView.SelectedItem = (NavigationViewItem)RootNavigationView.SettingsItem;
 			}else if(RootContentFrame.SourcePageType != null){
-				var item = rootTabs.FirstOrDefault(p => p.Page == e.SourcePageType);
+				var item = _rootTabs.FirstOrDefault(p => p.Page == e.SourcePageType);
 				RootNavigationView.SelectedItem = RootNavigationView.MenuItems.OfType<NavigationViewItem>().First(n => n.Tag.Equals(item.Tag));
 			}
 		}
