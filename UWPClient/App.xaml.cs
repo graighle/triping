@@ -15,7 +15,7 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 
-namespace UWPClient
+namespace Graighle.Triping.UWPClient
 {
     /// <summary>
     /// 既定の Application クラスを補完するアプリケーション固有の動作を提供します。

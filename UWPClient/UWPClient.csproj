@@ -7,8 +7,8 @@
     <ProjectGuid>{B06B62BE-69EB-4CAF-82E5-A01D5373FE39}</ProjectGuid>
     <OutputType>AppContainerExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>UWPClient</RootNamespace>
-    <AssemblyName>UWPClient</AssemblyName>
+    <RootNamespace>Graighle.Triping.UWPClient</RootNamespace>
+    <AssemblyName>TRiPinG_UWP</AssemblyName>
     <DefaultLanguage>ja-JP</DefaultLanguage>
     <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
     <TargetPlatformVersion Condition=" '$(TargetPlatformVersion)' == '' ">10.0.17763.0</TargetPlatformVersion>

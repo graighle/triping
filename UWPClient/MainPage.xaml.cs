@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using UWPClient.character;
-using UWPClient.client;
-using UWPClient.home;
-using UWPClient.host;
-using UWPClient.setting;
+using Graighle.Triping.UWPClient.character;
+using Graighle.Triping.UWPClient.client;
+using Graighle.Triping.UWPClient.home;
+using Graighle.Triping.UWPClient.host;
+using Graighle.Triping.UWPClient.setting;
 using Windows.Foundation;
 using Windows.UI.ViewManagement;
 using Windows.UI.Xaml;
@@ -13,7 +13,7 @@ using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Media.Animation;
 using Windows.UI.Xaml.Navigation;
 
-namespace UWPClient
+namespace Graighle.Triping.UWPClient
 {
 
     /// <summary>
