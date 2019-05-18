@@ -7,15 +7,15 @@
   IgnorableNamespaces="uap mp">
 
   <Identity
-    Name="3397e8a0-dd8f-49c5-aee7-79034efee84c"
+    Name="Graighle.Triping.UWPClient"
     Publisher="CN=agrip"
     Version="1.0.0.0" />
 
   <mp:PhoneIdentity PhoneProductId="3397e8a0-dd8f-49c5-aee7-79034efee84c" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
 
   <Properties>
-    <DisplayName>UWPClient</DisplayName>
-    <PublisherDisplayName>agrip</PublisherDisplayName>
+    <DisplayName>TRiPinG UWPClient</DisplayName>
+    <PublisherDisplayName>Shogo Furusawa</PublisherDisplayName>
     <Logo>Assets\StoreLogo.png</Logo>
   </Properties>
 
