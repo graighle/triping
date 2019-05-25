@@ -20,6 +20,7 @@
                 <NavigationViewItem Tag="characters" x:Uid="RootNavigationCharacters" />
                 <NavigationViewItem Tag="client" x:Uid="RootNavigationClient" />
                 <NavigationViewItem Tag="host" x:Uid="RootNavigationHost" />
+                <NavigationViewItem Tag="scenario" x:Uid="RootNavigationScenario" />
             </NavigationView.MenuItems>
 
             <Frame x:Name="rootContentFrame" />

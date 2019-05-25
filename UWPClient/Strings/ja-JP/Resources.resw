@@ -129,4 +129,7 @@
   <data name="RootNavigationHost.Content" xml:space="preserve">
     <value>ゲームマスター</value>
   </data>
+  <data name="RootNavigationScenario.Content" xml:space="preserve">
+    <value>シナリオ</value>
+  </data>
 </root>
