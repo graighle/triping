@@ -117,4 +117,16 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="RootNavigationCharacters.Content" xml:space="preserve">
+    <value>キャラクター</value>
+  </data>
+  <data name="RootNavigationClient.Content" xml:space="preserve">
+    <value>プレイヤー</value>
+  </data>
+  <data name="RootNavigationHome.Content" xml:space="preserve">
+    <value>ホーム</value>
+  </data>
+  <data name="RootNavigationHost.Content" xml:space="preserve">
+    <value>ゲームマスター</value>
+  </data>
 </root>

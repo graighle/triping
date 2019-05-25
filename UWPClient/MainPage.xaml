@@ -16,10 +16,10 @@
             </NavigationView.PaneHeader>
 
             <NavigationView.MenuItems>
-                <NavigationViewItem Tag="home" Icon="Home" Content="Home" />
-                <NavigationViewItem Tag="characters" Icon="People" Content="Characters" />
-                <NavigationViewItem Tag="client" Icon="Page2" Content="PL" />
-                <NavigationViewItem Tag="host" Icon="Page" Content="GM" />
+                <NavigationViewItem Tag="home" x:Uid="RootNavigationHome" />
+                <NavigationViewItem Tag="characters" x:Uid="RootNavigationCharacters" />
+                <NavigationViewItem Tag="client" x:Uid="RootNavigationClient" />
+                <NavigationViewItem Tag="host" x:Uid="RootNavigationHost" />
             </NavigationView.MenuItems>
 
             <Frame x:Name="rootContentFrame" />
