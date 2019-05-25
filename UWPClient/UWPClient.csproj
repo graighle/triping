@@ -135,7 +135,7 @@
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="scenario\ScenarioListPage.xaml.cs">
+    <Compile Include="Scenario\ScenarioListPage.xaml.cs">
       <DependentUpon>ScenarioListPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="setting\SettingPage.xaml.cs">
@@ -184,7 +184,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="scenario\ScenarioListPage.xaml">
+    <Page Include="Scenario\ScenarioListPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

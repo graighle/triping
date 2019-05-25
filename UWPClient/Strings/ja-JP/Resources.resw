@@ -132,4 +132,7 @@
   <data name="RootNavigationScenario.Content" xml:space="preserve">
     <value>シナリオ</value>
   </data>
+  <data name="ScenarioListLabel.Text" xml:space="preserve">
+    <value>シナリオ一覧</value>
+  </data>
 </root>

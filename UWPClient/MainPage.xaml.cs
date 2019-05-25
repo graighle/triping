@@ -5,7 +5,7 @@ using Graighle.Triping.UWPClient.character;
 using Graighle.Triping.UWPClient.client;
 using Graighle.Triping.UWPClient.home;
 using Graighle.Triping.UWPClient.host;
-using Graighle.Triping.UWPClient.scenario;
+using Graighle.Triping.UWPClient.Scenario;
 using Graighle.Triping.UWPClient.setting;
 using Windows.Foundation;
 using Windows.UI.ViewManagement;
