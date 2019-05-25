@@ -119,16 +119,16 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
-    <Compile Include="character\CharacterListPage.xaml.cs">
+    <Compile Include="Character\CharacterListPage.xaml.cs">
       <DependentUpon>CharacterListPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="client\ClientEntryPage.xaml.cs">
+    <Compile Include="Client\ClientEntryPage.xaml.cs">
       <DependentUpon>ClientEntryPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="home\HomePage.xaml.cs">
+    <Compile Include="Home\HomePage.xaml.cs">
       <DependentUpon>HomePage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="host\HostEntryPage.xaml.cs">
+    <Compile Include="Host\HostEntryPage.xaml.cs">
       <DependentUpon>HostEntryPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="MainPage.xaml.cs">
@@ -138,7 +138,7 @@
     <Compile Include="Scenario\ScenarioListPage.xaml.cs">
       <DependentUpon>ScenarioListPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="setting\SettingPage.xaml.cs">
+    <Compile Include="Setting\SettingPage.xaml.cs">
       <DependentUpon>SettingPage.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
@@ -164,19 +164,19 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="character\CharacterListPage.xaml">
+    <Page Include="Character\CharacterListPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="client\ClientEntryPage.xaml">
+    <Page Include="Client\ClientEntryPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="home\HomePage.xaml">
+    <Page Include="Home\HomePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="host\HostEntryPage.xaml">
+    <Page Include="Host\HostEntryPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -188,7 +188,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="setting\SettingPage.xaml">
+    <Page Include="Setting\SettingPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

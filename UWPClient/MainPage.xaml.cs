@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using Graighle.Triping.UWPClient.character;
-using Graighle.Triping.UWPClient.client;
-using Graighle.Triping.UWPClient.home;
-using Graighle.Triping.UWPClient.host;
+using Graighle.Triping.UWPClient.Character;
+using Graighle.Triping.UWPClient.Client;
+using Graighle.Triping.UWPClient.Home;
+using Graighle.Triping.UWPClient.Host;
 using Graighle.Triping.UWPClient.Scenario;
-using Graighle.Triping.UWPClient.setting;
+using Graighle.Triping.UWPClient.Setting;
 using Windows.Foundation;
 using Windows.UI.ViewManagement;
 using Windows.UI.Xaml;
