@@ -12,7 +12,7 @@
         <!-- Root Navigation -->
         <NavigationView x:Name="rootNavigationView" PaneDisplayMode="Top" IsBackButtonVisible="Collapsed" Loaded="RootNavigationView_Loaded" ItemInvoked="RootNavigationView_ItemInvoked">
             <NavigationView.PaneHeader>
-                <TextBlock Text="Triping" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="12,0,12,0" FontSize="16" />
+                <TextBlock Text="TRiPinG" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="12,0,12,0" FontSize="16" />
             </NavigationView.PaneHeader>
 
             <NavigationView.MenuItems>
