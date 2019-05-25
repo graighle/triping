@@ -143,6 +143,7 @@
     <AppxManifest Include="Package.appxmanifest">
       <SubType>Designer</SubType>
     </AppxManifest>
+    <PRIResource Include="Strings\ja-JP\Resources.resw" />
     <None Include="UWPClient_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
