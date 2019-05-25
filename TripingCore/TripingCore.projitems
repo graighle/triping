@@ -10,5 +10,6 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)Exceptions\UserDataFormatException.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Scenario\ScenarioPackage.cs" />
   </ItemGroup>
 </Project>

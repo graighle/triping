@@ -132,6 +132,24 @@
   <data name="RootNavigationScenario.Content" xml:space="preserve">
     <value>シナリオ</value>
   </data>
+  <data name="ScenarioEditorNavigationEpilogue.Content" xml:space="preserve">
+    <value>エンディング</value>
+  </data>
+  <data name="ScenarioEditorNavigationHeader.Text" xml:space="preserve">
+    <value>シナリオ編集</value>
+  </data>
+  <data name="ScenarioEditorNavigationMaps.Content" xml:space="preserve">
+    <value>マップ</value>
+  </data>
+  <data name="ScenarioEditorNavigationNPCs.Content" xml:space="preserve">
+    <value>NPC</value>
+  </data>
+  <data name="ScenarioEditorNavigationOutline.Content" xml:space="preserve">
+    <value>概要</value>
+  </data>
+  <data name="ScenarioEditorNavigationPrologue.Content" xml:space="preserve">
+    <value>オープニング</value>
+  </data>
   <data name="ScenarioListLabel.Text" xml:space="preserve">
     <value>シナリオ一覧</value>
   </data>

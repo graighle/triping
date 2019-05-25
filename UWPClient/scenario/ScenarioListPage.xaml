@@ -24,7 +24,7 @@
                                 <TextBlock x:Uid="ScenarioListLabel" TextWrapping="Wrap" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="8,0,0,0"/>
                             </Grid>
                         </CommandBar.Content>
-                        <AppBarButton Icon="Add" />
+                        <AppBarButton Icon="Add" Click="AddScenarioButton_Click" />
                     </CommandBar>
 
                     <ListView Grid.Row="1"/>
