@@ -9,11 +9,32 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
-        <NavigationView x:Name="scenarioEditorNavigationView" IsBackButtonVisible="Visible" IsBackEnabled="True" PaneDisplayMode="Top" BackRequested="ScenarioEditorNavigationView_BackRequested" Loaded="ScenarioEditorNavigationView_Loaded" ItemInvoked="RootNavigationView_ItemInvoked" IsSettingsVisible="False">
-            <NavigationView.PaneHeader>
-                <TextBlock x:Uid="ScenarioEditorNavigationHeader" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="12,0,12,0" FontSize="16" />
-            </NavigationView.PaneHeader>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
 
+        <!-- コマンドバー -->
+        <CommandBar Grid.Row="0" DefaultLabelPosition="Right">
+            <CommandBar.Content>
+                <StackPanel Orientation="Horizontal">
+                    <AppBarButton Icon="Back" Click="BackButton_Click" />
+                    <TextBlock x:Uid="ScenarioEditorNavigationHeader" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="12,0,12,0" FontSize="16" />
+                </StackPanel>
+            </CommandBar.Content>
+            <AppBarButton x:Uid="ScenarioEditorEditButton" Icon="Edit" />
+            <AppBarButton x:Uid="ScenarioEditorSaveButton" Icon="Save" />
+            <AppBarButton x:Uid="ScenarioEditorCancelButton" Icon="Cancel" />
+
+            <CommandBar.SecondaryCommands>
+                <AppBarButton x:Uid="ScenarioEditorExportButton" />
+                <AppBarSeparator />
+                <AppBarButton x:Uid="ScenarioEditorDeleteButton" />
+            </CommandBar.SecondaryCommands>
+        </CommandBar>
+
+        <!-- ナビゲーション＋コンテンツ -->
+        <NavigationView Grid.Row="1" x:Name="scenarioEditorNavigationView" IsBackButtonVisible="Collapsed" PaneDisplayMode="Top" Loaded="ScenarioEditorNavigationView_Loaded" ItemInvoked="RootNavigationView_ItemInvoked" IsSettingsVisible="False">
             <NavigationView.MenuItems>
                 <NavigationViewItem Tag="Outline" x:Uid="ScenarioEditorNavigationOutline" />
                 <NavigationViewItem Tag="Prologue" x:Uid="ScenarioEditorNavigationPrologue" />

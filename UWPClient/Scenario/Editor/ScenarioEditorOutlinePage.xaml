@@ -8,8 +8,8 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-    <Grid>
-        <TextBlock HorizontalAlignment="Left" Margin="630,500,0,0" Text="outline" TextWrapping="Wrap" VerticalAlignment="Top"/>
-
-    </Grid>
+    <ScrollViewer>
+        <StackPanel>
+        </StackPanel>
+    </ScrollViewer>
 </Page>

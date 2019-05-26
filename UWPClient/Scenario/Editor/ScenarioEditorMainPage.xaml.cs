@@ -32,11 +32,11 @@ namespace Graighle.Triping.UWPClient.Scenario.Editor
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void ScenarioEditorNavigationView_BackRequested(NavigationView sender, NavigationViewBackRequestedEventArgs e)
+        private void BackButton_Click(object sender, RoutedEventArgs e)
         {
-            if(Window.Current.Content is Frame rootFrame)
+            if(Window.Current.Content is Frame windowFrame)
             {
-                rootFrame.GoBack();
+                windowFrame.GoBack();
             }
         }
 
