@@ -16,6 +16,7 @@ namespace Graighle.Triping.UWPClient.Scenario.Editor
         private static readonly List<(string Tag, Type Page)> ScenarioEditorTabs = new List<(string Tag, Type Page)>
         {
             ("Outline", typeof(ScenarioEditorOutlinePage)),
+            ("Prologue", typeof(ScenarioEditorProloguePage)),
         };
 
         /// <summary>

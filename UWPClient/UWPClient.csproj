@@ -141,6 +141,9 @@
     <Compile Include="Scenario\Editor\ScenarioEditorOutlinePage.xaml.cs">
       <DependentUpon>ScenarioEditorOutlinePage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Scenario\Editor\ScenarioEditorProloguePage.xaml.cs">
+      <DependentUpon>ScenarioEditorProloguePage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Scenario\ScenarioListPage.xaml.cs">
       <DependentUpon>ScenarioListPage.xaml</DependentUpon>
     </Compile>
@@ -195,6 +198,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Scenario\Editor\ScenarioEditorOutlinePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Scenario\Editor\ScenarioEditorProloguePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
