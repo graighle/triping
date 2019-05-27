@@ -1,5 +1,4 @@
-﻿using Graighle.Triping.Scenario;
-using System.ComponentModel;
+﻿using System.ComponentModel;
 
 namespace Graighle.Triping.UWPClient.Scenario.Editor
 {
@@ -9,8 +8,6 @@ namespace Graighle.Triping.UWPClient.Scenario.Editor
     public class ScenarioPackageEditor : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
-
-        public ScenarioPackage Scenario { get; private set; }
 
         /// <summary>
         /// 概要/シナリオのタイトル。
@@ -65,7 +62,6 @@ namespace Graighle.Triping.UWPClient.Scenario.Editor
         /// </summary>
         public ScenarioPackageEditor()
         {
-            this.Scenario = new ScenarioPackage();
         }
     }
 }
