@@ -141,9 +141,13 @@
     <Compile Include="Scenario\Editor\ScenarioEditorOutlinePage.xaml.cs">
       <DependentUpon>ScenarioEditorOutlinePage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Scenario\Editor\ScenarioEditorOutlineViewModel.cs" />
     <Compile Include="Scenario\Editor\ScenarioEditorProloguePage.xaml.cs">
       <DependentUpon>ScenarioEditorProloguePage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Scenario\Editor\ScenarioEditorPrologueViewModel.cs" />
+    <Compile Include="Scenario\Editor\ScenarioEditorViewModel.cs" />
+    <Compile Include="Scenario\Editor\ScenarioPackageEditor.cs" />
     <Compile Include="Scenario\ScenarioListPage.xaml.cs">
       <DependentUpon>ScenarioListPage.xaml</DependentUpon>
     </Compile>

@@ -9,7 +9,14 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <ScrollViewer>
-        <StackPanel>
+        <StackPanel Margin="24">
+            <!-- タイトル -->
+            <TextBlock x:Uid="ScenarioTitleTextBlock" TextWrapping="Wrap" Style="{StaticResource EditorFormLabelTextBlock}" Height="20" VerticalAlignment="Bottom" FontFamily="Segoe UI"/>
+            <TextBox Text="{Binding ScenarioEditor.Title, Mode=TwoWay}" Style="{StaticResource EditorFormLineTextBox}"/>
+
+            <!-- 作者 -->
+            <TextBlock x:Uid="ScenarioAuthorTextBlock" TextWrapping="Wrap" Style="{StaticResource EditorFormLabelTextBlock}" Height="20" VerticalAlignment="Bottom" FontFamily="Segoe UI"/>
+            <TextBox Text="{Binding ScenarioEditor.Author, Mode=TwoWay}" Style="{StaticResource EditorFormLineTextBox}"/>
         </StackPanel>
     </ScrollViewer>
 </Page>

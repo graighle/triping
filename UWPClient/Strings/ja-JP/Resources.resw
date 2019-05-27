@@ -132,6 +132,9 @@
   <data name="RootNavigationScenario.Content" xml:space="preserve">
     <value>シナリオ</value>
   </data>
+  <data name="ScenarioAuthorTextBlock.Text" xml:space="preserve">
+    <value>作者</value>
+  </data>
   <data name="ScenarioEditorCancelButton.Label" xml:space="preserve">
     <value>キャンセル</value>
   </data>
@@ -167,5 +170,11 @@
   </data>
   <data name="ScenarioListLabel.Text" xml:space="preserve">
     <value>シナリオ一覧</value>
+  </data>
+  <data name="ScenarioSceneryTextBlock.Text" xml:space="preserve">
+    <value>背景</value>
+  </data>
+  <data name="ScenarioTitleTextBlock.Text" xml:space="preserve">
+    <value>タイトル</value>
   </data>
 </root>

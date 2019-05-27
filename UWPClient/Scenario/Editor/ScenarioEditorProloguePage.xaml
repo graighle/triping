@@ -9,7 +9,9 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <ScrollViewer>
-        <StackPanel>
+        <StackPanel Margin="24">
+            <TextBlock x:Uid="ScenarioSceneryTextBlock" TextWrapping="Wrap" Style="{StaticResource EditorFormLabelTextBlock}"/>
+            <TextBox Text="{Binding ScenarioEditor.Scenery, Mode=TwoWay}" AcceptsReturn="True" TextWrapping="Wrap" Height="200" ScrollViewer.VerticalScrollBarVisibility="Auto"/>
         </StackPanel>
     </ScrollViewer>
 </Page>

@@ -19,12 +19,16 @@ namespace Graighle.Triping.UWPClient.Scenario.Editor
             ("Prologue", typeof(ScenarioEditorProloguePage)),
         };
 
+        private ScenarioEditorViewModel viewModel { get; }
+
         /// <summary>
         /// コンストラクタ。
         /// </summary>
         public ScenarioEditorMainPage()
         {
             this.InitializeComponent();
+
+            this.DataContext = this.viewModel = new ScenarioEditorViewModel();
         }
 
         /// <summary>
@@ -54,7 +58,7 @@ namespace Graighle.Triping.UWPClient.Scenario.Editor
             var preNavPageType = this.rootContentFrame.CurrentSourcePageType;
             if (!(page is null) && !Type.Equals(preNavPageType, page))
             {
-                this.rootContentFrame.Navigate(page, null, transitionInfo);
+                this.rootContentFrame.Navigate(page, this.viewModel.ScenarioEditor, transitionInfo);
             }
         }
 
