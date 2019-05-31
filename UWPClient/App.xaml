@@ -16,8 +16,18 @@
             <Setter Property="Margin" Value="0,24,0,4"/>
         </Style>
 
+        <!-- 1行編集 -->
         <Style x:Key="EditorFormLineTextBox" TargetType="TextBox">
             <Setter Property="Margin" Value="0,4,0,4"/>
+        </Style>
+
+        <!-- 複数行編集 -->
+        <Style x:Key="EditorFormMultiLinesTextBox" TargetType="TextBox">
+            <Setter Property="Height" Value="200"/>
+            <Setter Property="Margin" Value="0,4,0,4"/>
+            <Setter Property="AcceptsReturn" Value="True"/>
+            <Setter Property="TextWrapping" Value="Wrap"/>
+            <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto"/>
         </Style>
     </Application.Resources>
 

@@ -165,6 +165,18 @@
   <data name="ScenarioEditorNavigationPrologue.Content" xml:space="preserve">
     <value>オープニング</value>
   </data>
+  <data name="ScenarioEditorRevertConfirmContent" xml:space="preserve">
+    <value>変更内容を保存せずに終了します。よろしいですか？</value>
+  </data>
+  <data name="ScenarioEditorRevertConfirmNo" xml:space="preserve">
+    <value>編集を続ける</value>
+  </data>
+  <data name="ScenarioEditorRevertConfirmTitle" xml:space="preserve">
+    <value>編集を終了</value>
+  </data>
+  <data name="ScenarioEditorRevertConfirmYes" xml:space="preserve">
+    <value>変更を破棄する</value>
+  </data>
   <data name="ScenarioEditorSaveButton.Label" xml:space="preserve">
     <value>保存</value>
   </data>

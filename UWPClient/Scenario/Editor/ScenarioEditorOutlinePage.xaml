@@ -12,11 +12,11 @@
         <StackPanel Margin="24">
             <!-- タイトル -->
             <TextBlock x:Uid="ScenarioTitleTextBlock" TextWrapping="Wrap" Style="{StaticResource EditorFormLabelTextBlock}" Height="20" VerticalAlignment="Bottom" FontFamily="Segoe UI"/>
-            <TextBox Text="{Binding ScenarioEditor.Title, Mode=TwoWay}" Style="{StaticResource EditorFormLineTextBox}"/>
+            <TextBox Text="{Binding ScenarioEditor.Title, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource EditorFormLineTextBox}" IsReadOnly="{Binding ScenarioEditor.IsEditing, Converter={StaticResource InverseBool}}"/>
 
             <!-- 作者 -->
             <TextBlock x:Uid="ScenarioAuthorTextBlock" TextWrapping="Wrap" Style="{StaticResource EditorFormLabelTextBlock}" Height="20" VerticalAlignment="Bottom" FontFamily="Segoe UI"/>
-            <TextBox Text="{Binding ScenarioEditor.Author, Mode=TwoWay}" Style="{StaticResource EditorFormLineTextBox}"/>
+            <TextBox Text="{Binding ScenarioEditor.Author, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource EditorFormLineTextBox}" IsReadOnly="{Binding ScenarioEditor.IsEditing, Converter={StaticResource InverseBool}}"/>
         </StackPanel>
     </ScrollViewer>
 </Page>

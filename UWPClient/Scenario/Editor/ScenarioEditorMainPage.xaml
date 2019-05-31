@@ -22,14 +22,14 @@
                     <TextBlock x:Uid="ScenarioEditorNavigationHeader" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="12,0,12,0" FontSize="16" />
                 </StackPanel>
             </CommandBar.Content>
-            <AppBarButton x:Uid="ScenarioEditorEditButton" Icon="Edit" />
-            <AppBarButton x:Uid="ScenarioEditorSaveButton" Icon="Save" />
-            <AppBarButton x:Uid="ScenarioEditorCancelButton" Icon="Cancel" />
+            <AppBarButton x:Uid="ScenarioEditorEditButton" Icon="Edit" Visibility="{Binding ScenarioEditor.IsEditing, Converter={StaticResource InverseBool}}" Click="EditButton_Click"/>
+            <AppBarButton x:Uid="ScenarioEditorSaveButton" Icon="Save" Visibility="{Binding ScenarioEditor.IsEditing}"/>
+            <AppBarButton x:Uid="ScenarioEditorCancelButton" Icon="Cancel" Visibility="{Binding ScenarioEditor.IsEditing}" Click="CancelButton_Click"/>
 
             <CommandBar.SecondaryCommands>
-                <AppBarButton x:Uid="ScenarioEditorExportButton" />
+                <AppBarButton x:Uid="ScenarioEditorExportButton" Visibility="{Binding ScenarioEditor.IsEditing, Converter={StaticResource InverseBool}}"/>
                 <AppBarSeparator />
-                <AppBarButton x:Uid="ScenarioEditorDeleteButton" />
+                <AppBarButton x:Uid="ScenarioEditorDeleteButton" Visibility="{Binding ScenarioEditor.IsEditing, Converter={StaticResource InverseBool}}"/>
             </CommandBar.SecondaryCommands>
         </CommandBar>
 

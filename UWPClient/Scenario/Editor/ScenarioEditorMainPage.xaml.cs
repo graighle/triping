@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Windows.ApplicationModel.Resources;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Media.Animation;
@@ -43,6 +44,39 @@ namespace Graighle.Triping.UWPClient.Scenario.Editor
             {
                 windowFrame.GoBack();
             }
+        }
+
+        /// <summary>
+        /// 編集ボタンを押された処理。
+        /// 編集を開始する。
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void EditButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.viewModel.StartEditing();
+        }
+
+        private async void CancelButton_Click(object sender, RoutedEventArgs e)
+        {
+            if(this.viewModel.ScenarioEditor.IsEdited)
+            {
+                var rc = new ResourceLoader();
+                var confirmDialog = new ContentDialog
+                {
+                    Title = rc.GetString("ScenarioEditorRevertConfirmTitle"),
+                    Content = rc.GetString("ScenarioEditorRevertConfirmContent"),
+                    PrimaryButtonText = rc.GetString("ScenarioEditorRevertConfirmYes"),
+                    CloseButtonText = rc.GetString("ScenarioEditorRevertConfirmNo"),
+                };
+                var result = await confirmDialog.ShowAsync();
+                if(result != ContentDialogResult.Primary)
+                {
+                    return;
+                }
+            }
+
+            this.viewModel.RevertEditing();
         }
 
         /// <summary>
