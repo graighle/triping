@@ -23,7 +23,7 @@
                 </StackPanel>
             </CommandBar.Content>
             <AppBarButton x:Uid="ScenarioEditorEditButton" Icon="Edit" Visibility="{Binding ScenarioEditor.IsEditing, Converter={StaticResource InverseBool}}" Click="EditButton_Click"/>
-            <AppBarButton x:Uid="ScenarioEditorSaveButton" Icon="Save" Visibility="{Binding ScenarioEditor.IsEditing}"/>
+            <AppBarButton x:Uid="ScenarioEditorSaveButton" Icon="Save" Visibility="{Binding ScenarioEditor.IsEditing}" Click="SaveButton_Click"/>
             <AppBarButton x:Uid="ScenarioEditorCancelButton" Icon="Cancel" Visibility="{Binding ScenarioEditor.IsEditing}" Click="CancelButton_Click"/>
 
             <CommandBar.SecondaryCommands>

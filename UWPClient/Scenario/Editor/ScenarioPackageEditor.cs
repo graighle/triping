@@ -1,4 +1,5 @@
-﻿using System.ComponentModel;
+﻿using Graighle.Triping.Scenario;
+using System.ComponentModel;
 
 namespace Graighle.Triping.UWPClient.Scenario.Editor
 {
@@ -9,7 +10,7 @@ namespace Graighle.Triping.UWPClient.Scenario.Editor
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
-        public bool IsEdited { get; set; } = false;
+        public bool IsEdited { get; private set; } = false;
 
         /// <summary>
         /// 編集中かどうか。
@@ -17,7 +18,7 @@ namespace Graighle.Triping.UWPClient.Scenario.Editor
         private bool isEditing = false;
         public bool IsEditing {
             get => this.isEditing;
-            set {
+            private set {
                 if(value != this.isEditing)
                 {
                     this.isEditing = value;
@@ -86,27 +87,55 @@ namespace Graighle.Triping.UWPClient.Scenario.Editor
         }
 
         /// <summary>
-        /// コピーコンストラクタ。
+        /// 編集を開始する。
         /// </summary>
-        /// <param name="source"></param>
-        public ScenarioPackageEditor(ScenarioPackageEditor source)
+        public void BeginEditing()
         {
-            this.Assign(source);
+            this.IsEdited = false;
+            this.IsEditing = true;
         }
 
         /// <summary>
-        /// 全ての値をコピーする。
+        /// 編集を終了する。
         /// </summary>
-        /// </summary>
-        /// <param name="source">コピー元。</param>
-        /// <returns></returns>
-        public void Assign(ScenarioPackageEditor source)
+        public void EndEditing()
         {
-            this.IsEdited = source.IsEdited;
-            this.IsEditing = source.IsEditing;
-            this.Title = source.Title;
-            this.Author = source.Author;
-            this.Scenery = source.Scenery;
+            this.IsEdited = false;
+            this.IsEditing = false;
+        }
+
+        /// <summary>
+        /// シナリオデータをパッケージから読込む。
+        /// </summary>
+        /// <param name="package">シナリオパッケージ。</param>
+        public void ImportPackage(ScenarioPackage package)
+        {
+            // 概要
+            this.Title = package.Title;
+            this.Author = package.Author;
+
+            // プロローグ
+            this.Scenery = package.Scenery;
+
+            this.IsEdited = false;
+        }
+
+        /// <summary>
+        /// 編集中のシナリオデータをパッケージとして取得する。
+        /// </summary>
+        /// <returns>シナリオパッケージ。</returns>
+        public ScenarioPackage ExportPackage()
+        {
+            var package = new ScenarioPackage();
+
+            // 概要
+            package.Title = this.Title;
+            package.Author = this.Author;
+
+            // プロローグ
+            package.Scenery = this.Scenery;
+
+            return package;
         }
 
     }

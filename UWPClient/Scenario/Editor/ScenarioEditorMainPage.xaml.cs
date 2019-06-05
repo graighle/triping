@@ -54,9 +54,26 @@ namespace Graighle.Triping.UWPClient.Scenario.Editor
         /// <param name="e"></param>
         private void EditButton_Click(object sender, RoutedEventArgs e)
         {
-            this.viewModel.StartEditing();
+            this.viewModel.BeginEditing();
         }
 
+        /// <summary>
+        /// 保存ボタンを押された処理。
+        /// 編集中のシナリオを保存する。
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private async void SaveButton_Click(object sender, RoutedEventArgs e)
+        {
+            var fileName = await this.viewModel.SaveEditing();
+        }
+
+        /// <summary>
+        /// キャンセルボタンを押された処理。
+        /// 変更内容を破棄して編集を終了する。
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private async void CancelButton_Click(object sender, RoutedEventArgs e)
         {
             if(this.viewModel.ScenarioEditor.IsEdited)

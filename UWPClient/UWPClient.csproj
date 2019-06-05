@@ -125,6 +125,7 @@
     <Compile Include="Client\ClientEntryPage.xaml.cs">
       <DependentUpon>ClientEntryPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="FileSystems\ScenarioFileOperator.cs" />
     <Compile Include="Home\HomePage.xaml.cs">
       <DependentUpon>HomePage.xaml</DependentUpon>
     </Compile>

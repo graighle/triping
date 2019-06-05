@@ -117,6 +117,9 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="FailedToGenerateFileName" xml:space="preserve">
+    <value>新しいファイル名を作成できませんでした</value>
+  </data>
   <data name="RootNavigationCharacters.Content" xml:space="preserve">
     <value>キャラクター</value>
   </data>
@@ -180,6 +183,9 @@
   <data name="ScenarioEditorSaveButton.Label" xml:space="preserve">
     <value>保存</value>
   </data>
+  <data name="ScenarioEditorSaveErrorTitle" xml:space="preserve">
+    <value>シナリオファイルの保存中にエラーが発生しました</value>
+  </data>
   <data name="ScenarioListLabel.Text" xml:space="preserve">
     <value>シナリオ一覧</value>
   </data>
@@ -188,5 +194,8 @@
   </data>
   <data name="ScenarioTitleTextBlock.Text" xml:space="preserve">
     <value>タイトル</value>
+  </data>
+  <data name="UnauthorizedAccessToLocalFolder" xml:space="preserve">
+    <value>ローカルフォルダにアクセスを拒否されました</value>
   </data>
 </root>
