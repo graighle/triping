@@ -40,8 +40,8 @@ namespace Graighle.Triping.Scenario
                 new XElement("Triping",
                     new XElement("Scenario",
                         new XElement("Outline",
-                            new XElement("Title", scenario.Title),
-                            new XElement("Author", scenario.Author)
+                            new XElement("Title", scenario.Outline.Title),
+                            new XElement("Author", scenario.Outline.Author)
                         ),
                         new XElement("Prologue",
                             new XElement("Scenery", scenario.Scenery)

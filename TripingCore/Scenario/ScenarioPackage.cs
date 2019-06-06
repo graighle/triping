@@ -6,8 +6,7 @@
     public class ScenarioPackage
     {
         // 概要
-        public string Title { get; set; }
-        public string Author { get; set; }
+        public ScenarioOutline Outline { get; set; } = new ScenarioOutline();
 
         // プロローグ
         public string Scenery { get; set; }

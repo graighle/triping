@@ -111,8 +111,8 @@ namespace Graighle.Triping.UWPClient.Scenario.Editor
         public void ImportPackage(ScenarioPackage package)
         {
             // 概要
-            this.Title = package.Title;
-            this.Author = package.Author;
+            this.Title = package.Outline.Title;
+            this.Author = package.Outline.Author;
 
             // プロローグ
             this.Scenery = package.Scenery;
@@ -129,8 +129,8 @@ namespace Graighle.Triping.UWPClient.Scenario.Editor
             var package = new ScenarioPackage();
 
             // 概要
-            package.Title = this.Title;
-            package.Author = this.Author;
+            package.Outline.Title = this.Title;
+            package.Outline.Author = this.Author;
 
             // プロローグ
             package.Scenery = this.Scenery;
