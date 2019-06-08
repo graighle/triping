@@ -12,6 +12,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Exceptions\ExternalDataOperationException.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Exceptions\UserDataFormatException.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)IO\StringWriterUTF8.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Scenario\ScenarioDeserializer.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Scenario\ScenarioOutline.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Scenario\ScenarioPackage.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Scenario\ScenarioPackageSerializer.cs" />

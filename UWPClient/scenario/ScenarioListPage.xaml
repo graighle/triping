@@ -6,7 +6,8 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
+    Loaded="Page_Loaded">
 
     <Grid>
         <SplitView DisplayMode="Inline" IsPaneOpen="True">
@@ -27,7 +28,16 @@
                         <AppBarButton Icon="Add" Click="AddScenarioButton_Click" />
                     </CommandBar>
 
-                    <ListView Grid.Row="1"/>
+                    <ListView Grid.Row="1" ItemsSource="{Binding ScenarioList.Items}">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Vertical" VerticalAlignment="Center" Margin="12,0,0,0">
+                                    <TextBlock Text="{Binding Title}" Style="{ThemeResource BaseTextBlockStyle}" Opacity="0.8" Margin="0,4,0,0" />
+                                    <TextBlock Text="{Binding Author}" Style="{ThemeResource CaptionTextBlockStyle}" Opacity="0.6" Margin="0,4,0,0" />
+                                </StackPanel>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
                 </Grid>
             </SplitView.Pane>
 

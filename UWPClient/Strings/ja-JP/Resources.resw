@@ -120,6 +120,9 @@
   <data name="FailedToGenerateFileName" xml:space="preserve">
     <value>新しいファイル名を作成できませんでした</value>
   </data>
+  <data name="FileNotFound" xml:space="preserve">
+    <value>ファイルが見つかりませんでした</value>
+  </data>
   <data name="RootNavigationCharacters.Content" xml:space="preserve">
     <value>キャラクター</value>
   </data>
@@ -185,6 +188,9 @@
   </data>
   <data name="ScenarioEditorSaveErrorTitle" xml:space="preserve">
     <value>シナリオファイルの保存中にエラーが発生しました</value>
+  </data>
+  <data name="ScenarioFileFormatError" xml:space="preserve">
+    <value>シナリオファイルが壊れています</value>
   </data>
   <data name="ScenarioListLabel.Text" xml:space="preserve">
     <value>シナリオ一覧</value>

@@ -1,9 +1,11 @@
 ﻿using Graighle.Triping.Exceptions;
 using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
 using Windows.ApplicationModel.Resources;
 using Windows.Storage;
+using Windows.Storage.Search;
 using Windows.Storage.Streams;
 
 namespace Graighle.Triping.UWPClient.FileSystems
@@ -17,6 +19,67 @@ namespace Graighle.Triping.UWPClient.FileSystems
         private static readonly string ScenarioFilePrefix = "scenario_";
         private static readonly string ScenarioFileExtension = ".xml";
         private static readonly int ScenarioFileNumberLength = 5;
+
+        /// <summary>
+        /// シナリオファイルの一覧をスキャンする。
+        /// </summary>
+        /// <returns>シナリオファイル名一覧。</returns>
+        public async Task<List<string>> ScanScenarioFileNames()
+        {
+            var fileNames = new List<string>();
+
+            // シナリオフォルダを開く。
+            try
+            {
+                var localFolder = ApplicationData.Current.LocalFolder;
+                var scenarioFolder = await localFolder.GetFolderAsync(ScenarioFolderName);
+
+                var files = await scenarioFolder.GetFilesAsync(CommonFileQuery.OrderByName);
+                foreach(var file in files)
+                {
+                    fileNames.Add(file.Name);
+                }
+
+                return fileNames;
+            }
+            catch(FileNotFoundException)
+            {
+                return fileNames;
+            }
+            catch(UnauthorizedAccessException)
+            {
+                var rc = new ResourceLoader();
+                throw new ExternalDataOperationException(rc.GetString("UnauthorizedAccessToLocalFolder"));
+            }
+        }
+
+        /// <summary>
+        /// シナリオファイルを読込む。
+        /// </summary>
+        /// <returns>シナリオファイルのデータ。</returns>
+        public async Task<string> ReadFromFile(string fileName)
+        {
+            // シナリオフォルダを開く。
+            try
+            {
+                var localFolder = ApplicationData.Current.LocalFolder;
+                var scenarioFolder = await localFolder.GetFolderAsync(ScenarioFolderName);
+
+                var file = await scenarioFolder.GetFileAsync(fileName);
+
+                return await FileIO.ReadTextAsync(file);
+            }
+            catch(FileNotFoundException)
+            {
+                var rc = new ResourceLoader();
+                throw new ExternalDataOperationException(rc.GetString("FileNotFound"));
+            }
+            catch(UnauthorizedAccessException)
+            {
+                var rc = new ResourceLoader();
+                throw new ExternalDataOperationException(rc.GetString("UnauthorizedAccessToLocalFolder"));
+            }
+        }
 
         /// <summary>
         /// シナリオデータをファイルに出力する。
