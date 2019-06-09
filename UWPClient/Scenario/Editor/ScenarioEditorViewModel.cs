@@ -61,7 +61,7 @@ namespace Graighle.Triping.UWPClient.Scenario.Editor
             var edited = this.ScenarioEditor.ExportPackage();
 
             // ポータブル形式にシリアライズ。
-            var serializer = new ScenarioPackageSerializer();
+            var serializer = new ScenarioSerializer();
             var serialized = serializer.SerializeToPortableFormat(edited);
 
             // ファイルへ書込み。

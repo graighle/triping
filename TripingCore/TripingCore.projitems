@@ -15,6 +15,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)Scenario\ScenarioDeserializer.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Scenario\ScenarioOutline.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Scenario\ScenarioPackage.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Scenario\ScenarioPackageSerializer.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Scenario\ScenarioSerializer.cs" />
   </ItemGroup>
 </Project>

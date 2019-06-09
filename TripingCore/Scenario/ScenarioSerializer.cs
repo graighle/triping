@@ -8,7 +8,7 @@ namespace Graighle.Triping.Scenario
     /// <summary>
     /// シナリオデータをシリアライズする。
     /// </summary>
-    public class ScenarioPackageSerializer
+    public class ScenarioSerializer
     {
         /// <summary>
         /// シナリオデータをポータブル形式へシリアライズする。
@@ -33,16 +33,18 @@ namespace Graighle.Triping.Scenario
             return strWriter.ToString();
         }
 
+        /// <summary>
+        /// シナリオパッケージからXMLを作成する。
+        /// </summary>
+        /// <param name="scenario">シナリオパッケージ。</param>
+        /// <returns>XML文書データ。</returns>
         private XDocument CreateXml(ScenarioPackage scenario)
         {
             return new XDocument(
                 new XDeclaration("1.0", "utf-8", "yes"),
                 new XElement("Triping",
                     new XElement("Scenario",
-                        new XElement("Outline",
-                            new XElement("Title", scenario.Outline.Title),
-                            new XElement("Author", scenario.Outline.Author)
-                        ),
+                        this.CreateOutlineXml(scenario.Outline),
                         new XElement("Prologue",
                             new XElement("Scenery", scenario.Scenery)
                         )
@@ -50,5 +52,19 @@ namespace Graighle.Triping.Scenario
                 )
             );
         }
+
+        /// <summary>
+        /// シナリオ概要からXMLを作成する。
+        /// </summary>
+        /// <param name="outline">シナリオ概要。</param>
+        /// <returns>XML概要ノード。</returns>
+        private XElement CreateOutlineXml(ScenarioOutline outline)
+        {
+            return new XElement("Outline",
+                new XElement("Title", outline.Title),
+                new XElement("Author", outline.Author)
+            );
+        }
+
     }
 }
