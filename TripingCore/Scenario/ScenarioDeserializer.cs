@@ -11,6 +11,11 @@ namespace Graighle.Triping.Scenario
     /// </summary>
     public class ScenarioDeserializer
     {
+        /// <summary>
+        /// シナリオの概要をポータブル形式から解析する。
+        /// </summary>
+        /// <param name="serialized">シリアライズ済のシナリオテキスト。</param>
+        /// <returns>解析されたシナリオの概要。</returns>
         public ScenarioOutline DeserializeOutlineFromPortableFormat(string serialized)
         {
             var reader = new StringReader(serialized);
@@ -25,6 +30,11 @@ namespace Graighle.Triping.Scenario
             return this.ParseOutlineFromXml(xml.Root);
         }
 
+        /// <summary>
+        /// シナリオの概要をXMLからパースする。
+        /// </summary>
+        /// <param name="tripingNode">ルートノード。</param>
+        /// <returns>パースされたシナリオの概要。</returns>
         private ScenarioOutline ParseOutlineFromXml(XElement tripingNode)
         {
             var outline = new ScenarioOutline();
