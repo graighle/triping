@@ -1,8 +1,8 @@
 ﻿using Graighle.Triping.UWPClient.Scenario.Editor;
+using System;
 using System.Threading.Tasks;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Navigation;
 
 namespace Graighle.Triping.UWPClient.Scenario
 {
@@ -30,7 +30,7 @@ namespace Graighle.Triping.UWPClient.Scenario
         /// <param name="e"></param>
         private async void Page_Loaded(object sender, RoutedEventArgs e)
         {
-            await this.viewModel.LoadScenarioList();
+            await this.UpdateScenarioList();
         }
 
         /// <summary>
@@ -43,6 +43,22 @@ namespace Graighle.Triping.UWPClient.Scenario
             if(Window.Current.Content is Frame rootFrame)
             {
                 rootFrame.Navigate(typeof(ScenarioEditorMainPage));
+            }
+        }
+
+        /// <summary>
+        /// シナリオリストを更新する。
+        /// </summary>
+        /// <returns></returns>
+        private async Task UpdateScenarioList()
+        {
+            try
+            {
+                await this.viewModel.LoadScenarioList();
+            }
+            catch(Exception)
+            {
+                //ERRMSG
             }
         }
     }

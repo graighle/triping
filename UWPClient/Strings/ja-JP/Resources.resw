@@ -120,9 +120,6 @@
   <data name="FailedToGenerateFileName" xml:space="preserve">
     <value>新しいファイル名を作成できませんでした</value>
   </data>
-  <data name="FileNotFound" xml:space="preserve">
-    <value>ファイルが見つかりませんでした</value>
-  </data>
   <data name="RootNavigationCharacters.Content" xml:space="preserve">
     <value>キャラクター</value>
   </data>
@@ -200,8 +197,5 @@
   </data>
   <data name="ScenarioTitleTextBlock.Text" xml:space="preserve">
     <value>タイトル</value>
-  </data>
-  <data name="UnauthorizedAccessToLocalFolder" xml:space="preserve">
-    <value>ローカルフォルダにアクセスを拒否されました</value>
   </data>
 </root>

@@ -26,59 +26,32 @@ namespace Graighle.Triping.UWPClient.FileSystems
         /// <returns>シナリオファイル名一覧。</returns>
         public async Task<List<string>> ScanScenarioFileNames()
         {
+            var localFolder = ApplicationData.Current.LocalFolder;
+            var scenarioFolder = await localFolder.GetFolderAsync(ScenarioFolderName);
+
+            var files = await scenarioFolder.GetFilesAsync(CommonFileQuery.OrderByName);
+
             var fileNames = new List<string>();
-
-            // シナリオフォルダを開く。
-            try
+            foreach(var file in files)
             {
-                var localFolder = ApplicationData.Current.LocalFolder;
-                var scenarioFolder = await localFolder.GetFolderAsync(ScenarioFolderName);
+                fileNames.Add(file.Name);
+            }
 
-                var files = await scenarioFolder.GetFilesAsync(CommonFileQuery.OrderByName);
-                foreach(var file in files)
-                {
-                    fileNames.Add(file.Name);
-                }
-
-                return fileNames;
-            }
-            catch(FileNotFoundException)
-            {
-                return fileNames;
-            }
-            catch(UnauthorizedAccessException)
-            {
-                var rc = new ResourceLoader();
-                throw new ExternalDataOperationException(rc.GetString("UnauthorizedAccessToLocalFolder"));
-            }
+            return fileNames;
         }
 
         /// <summary>
         /// シナリオファイルを読込む。
         /// </summary>
-        /// <returns>シナリオファイルのデータ。</returns>
+        /// <returns>シナリオファイルのテキストデータ。</returns>
         public async Task<string> ReadFromFile(string fileName)
         {
-            // シナリオフォルダを開く。
-            try
-            {
-                var localFolder = ApplicationData.Current.LocalFolder;
-                var scenarioFolder = await localFolder.GetFolderAsync(ScenarioFolderName);
+            var localFolder = ApplicationData.Current.LocalFolder;
+            var scenarioFolder = await localFolder.GetFolderAsync(ScenarioFolderName);
 
-                var file = await scenarioFolder.GetFileAsync(fileName);
+            var scenarioFile = await scenarioFolder.GetFileAsync(fileName);
 
-                return await FileIO.ReadTextAsync(file);
-            }
-            catch(FileNotFoundException)
-            {
-                var rc = new ResourceLoader();
-                throw new ExternalDataOperationException(rc.GetString("FileNotFound"));
-            }
-            catch(UnauthorizedAccessException)
-            {
-                var rc = new ResourceLoader();
-                throw new ExternalDataOperationException(rc.GetString("UnauthorizedAccessToLocalFolder"));
-            }
+            return await FileIO.ReadTextAsync(scenarioFile);
         }
 
         /// <summary>
@@ -90,43 +63,36 @@ namespace Graighle.Triping.UWPClient.FileSystems
         /// <returns>出力したファイル名。</returns>
         public async Task<string> WriteToFile(string fileName, string text, bool allowOverwrite)
         {
-            try {
-                // シナリオフォルダを開く。
-                var localFolder = ApplicationData.Current.LocalFolder;
-                StorageFolder scenarioFolder = null;
-                try
-                {
-                    scenarioFolder = await localFolder.GetFolderAsync(ScenarioFolderName);
-                }
-                catch(FileNotFoundException)
-                {
-                }
-
-                // シナリオフォルダが存在しなければ作成する。
-                if(localFolder == null)
-                {
-                    scenarioFolder = await localFolder.CreateFolderAsync(ScenarioFolderName);
-                }
-
-                // シナリオファイルを開く。
-                var createOptions = allowOverwrite ? CreationCollisionOption.ReplaceExisting : CreationCollisionOption.FailIfExists;
-                StorageFile scenarioFile = await scenarioFolder.CreateFileAsync(fileName, createOptions);
-
-                using(var transaction = await scenarioFile.OpenTransactedWriteAsync())
-                {
-                    using(var dataWriter = new DataWriter(transaction.Stream))
-                    {
-                        dataWriter.WriteString(text);
-                        // 書込み後にファイルサイズを書込んだサイズにする。
-                        transaction.Stream.Size = await dataWriter.StoreAsync();
-                        await transaction.CommitAsync();
-                    }
-                }
-            }
-            catch(UnauthorizedAccessException)
+            // シナリオフォルダを開く。
+            var localFolder = ApplicationData.Current.LocalFolder;
+            StorageFolder scenarioFolder = null;
+            try
             {
-                var rc = new ResourceLoader();
-                throw new ExternalDataOperationException(rc.GetString("UnauthorizedAccessToLocalFolder"));
+                scenarioFolder = await localFolder.GetFolderAsync(ScenarioFolderName);
+            }
+            catch(FileNotFoundException)
+            {
+            }
+
+            // シナリオフォルダが存在しなければ作成する。
+            if(localFolder == null)
+            {
+                scenarioFolder = await localFolder.CreateFolderAsync(ScenarioFolderName);
+            }
+
+            // シナリオファイルを開く。
+            var createOptions = allowOverwrite ? CreationCollisionOption.ReplaceExisting : CreationCollisionOption.FailIfExists;
+            StorageFile scenarioFile = await scenarioFolder.CreateFileAsync(fileName, createOptions);
+
+            using(var transaction = await scenarioFile.OpenTransactedWriteAsync())
+            {
+                using(var dataWriter = new DataWriter(transaction.Stream))
+                {
+                    dataWriter.WriteString(text);
+                    // 書込み後にファイルサイズを書込んだサイズにする。
+                    transaction.Stream.Size = await dataWriter.StoreAsync();
+                    await transaction.CommitAsync();
+                }
             }
 
             return fileName;
@@ -144,38 +110,33 @@ namespace Graighle.Triping.UWPClient.FileSystems
             int maxFileNameNumber = (int)Math.Pow(10, ScenarioFileNumberLength);
 
             // シナリオフォルダを開く。
+            StorageFolder scenarioFolder = null;
             try
             {
                 var localFolder = ApplicationData.Current.LocalFolder;
-                var scenarioFolder = await localFolder.GetFolderAsync(ScenarioFolderName);
-
-                // 連番でファイルが存在しなかったら新しいファイル名とする。
-                for(int n=0; n<maxFileNameNumber; ++n)
-                {
-                    var fileName = fileNamePrefix + n.ToString(fileNameNumberFormat) + ScenarioFileExtension;
-                    try
-                    {
-                        await scenarioFolder.GetFileAsync(fileName);
-                    }
-                    catch(FileNotFoundException)
-                    {
-                        return fileName;
-                    }
-                }
-
-                var rc = new ResourceLoader();
-                throw new ExternalDataOperationException(rc.GetString("FailedToGenerateFileName"));
+                scenarioFolder = await localFolder.GetFolderAsync(ScenarioFolderName);
             }
             catch(FileNotFoundException)
             {
                 // シナリオフォルダが存在しない場合はn=0で生成する。
                 return fileNamePrefix + (0).ToString(fileNameNumberFormat) + ScenarioFileExtension;
             }
-            catch(UnauthorizedAccessException)
+
+            // 連番でファイルが存在しなかったら新しいファイル名とする。
+            for(int n=0; n<maxFileNameNumber; ++n)
             {
-                var rc = new ResourceLoader();
-                throw new ExternalDataOperationException(rc.GetString("UnauthorizedAccessToLocalFolder"));
+                var fileName = fileNamePrefix + n.ToString(fileNameNumberFormat) + ScenarioFileExtension;
+                try
+                {
+                    await scenarioFolder.GetFileAsync(fileName);
+                }
+                catch(FileNotFoundException)
+                {
+                    return fileName;
+                }
             }
+
+            throw new TimeoutException();
         }
     }
 }
