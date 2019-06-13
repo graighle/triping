@@ -33,6 +33,21 @@ namespace Graighle.Triping.UWPClient.Scenario.Editor
         }
 
         /// <summary>
+        /// ページに遷移したときの処理。
+        /// シナリオファイルが指定されている場合、シナリオファイルを開く。
+        /// </summary>
+        /// <param name="e"></param>
+        protected override async void OnNavigatedTo(NavigationEventArgs e)
+        {
+            base.OnNavigatedTo(e);
+
+            if(e.Parameter is string fileName)
+            {
+                await this.viewModel.LoadScenario(fileName);
+            }
+        }
+
+        /// <summary>
         /// 戻るボタンを押された処理。
         /// メインページに戻る。
         /// </summary>

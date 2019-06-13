@@ -192,6 +192,9 @@
   <data name="ScenarioListLabel.Text" xml:space="preserve">
     <value>シナリオ一覧</value>
   </data>
+  <data name="ScenarioOpenDetailButton.Content" xml:space="preserve">
+    <value>詳細を開く</value>
+  </data>
   <data name="ScenarioSceneryTextBlock.Text" xml:space="preserve">
     <value>背景</value>
   </data>

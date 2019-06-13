@@ -11,6 +11,22 @@ namespace Graighle.Triping.UWPClient.Scenario.Models
         public event PropertyChangedEventHandler PropertyChanged;
 
         /// <summary>
+        /// シナリオファイル名
+        /// </summary>
+        private string fileName;
+        public string FileName {
+            get => this.fileName;
+            set {
+                if(value != this.fileName)
+                {
+                    this.fileName = value;
+                    this.PropertyChanged?.Invoke(this, FileNamePropertyChangedEventArgs);
+                }
+            }
+        }
+        private static readonly PropertyChangedEventArgs FileNamePropertyChangedEventArgs = new PropertyChangedEventArgs(nameof(FileName));
+
+        /// <summary>
         /// 概要/シナリオのタイトル。
         /// </summary>
         private string title;
@@ -52,9 +68,11 @@ namespace Graighle.Triping.UWPClient.Scenario.Models
         /// <summary>
         /// コンストラクタ。
         /// </summary>
+        /// <param name="fileName">ファイル名。</param>
         /// <param name="outline">シナリオ概要。</param>
-        public ScenarioOutlineListItem(ScenarioOutline outline)
+        public ScenarioOutlineListItem(string fileName, ScenarioOutline outline)
         {
+            this.FileName = fileName;
             this.ImportOutline(outline);
         }
 

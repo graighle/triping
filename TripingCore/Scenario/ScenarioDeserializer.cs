@@ -12,6 +12,25 @@ namespace Graighle.Triping.Scenario
     public class ScenarioDeserializer
     {
         /// <summary>
+        /// シナリオパッケージをポータブル形式から解析する。
+        /// </summary>
+        /// <param name="serialized">シリアライズ済のシナリオテキスト。</param>
+        /// <returns>解析されたシナリオパッケージ。</returns>
+        public ScenarioPackage DeserializePackageFromPortableFormat(string serialized)
+        {
+            var reader = new StringReader(serialized);
+            var xml = XDocument.Load(reader, LoadOptions.None);
+
+            if(xml.Root.Name != "Triping")
+            {
+                var rc = new ResourceLoader();
+                throw new UserDataFormatException(rc.GetString("ScenarioFileFormatError"));
+            }
+
+            return this.ParsePackageFromXml(xml.Root);
+        }
+
+        /// <summary>
         /// シナリオの概要をポータブル形式から解析する。
         /// </summary>
         /// <param name="serialized">シリアライズ済のシナリオテキスト。</param>
@@ -28,6 +47,20 @@ namespace Graighle.Triping.Scenario
             }
 
             return this.ParseOutlineFromXml(xml.Root);
+        }
+
+        /// <summary>
+        /// シナリオパッケージXMLからパースする。
+        /// </summary>
+        /// <param name="tripingNode">ルートノード。</param>
+        /// <returns>パースされたシナリオパッケージ。</returns>
+        private ScenarioPackage ParsePackageFromXml(XElement tripingNode)
+        {
+            return new ScenarioPackage
+            {
+                Outline = this.ParseOutlineFromXml(tripingNode),
+                Scenery = string.Empty,
+            };
         }
 
         /// <summary>

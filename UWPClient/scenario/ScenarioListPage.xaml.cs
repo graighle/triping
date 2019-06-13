@@ -1,4 +1,6 @@
 ﻿using Graighle.Triping.UWPClient.Scenario.Editor;
+using Graighle.Triping.UWPClient.Scenario.Models;
+using Graighle.Triping.UWPClient.Scenario.ViewModels;
 using System;
 using System.Threading.Tasks;
 using Windows.UI.Xaml;
@@ -34,6 +36,18 @@ namespace Graighle.Triping.UWPClient.Scenario
         }
 
         /// <summary>
+        /// シナリオが選択されたときの処理。
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ScenarioListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var selected = e.AddedItems.Count == 0 ? null : e.AddedItems[0] as ScenarioOutlineListItem;
+
+            this.selectingScenarioFrame.DataContext = selected;
+        }
+
+        /// <summary>
         /// シナリオ追加ボタンが押された処理。
         /// </summary>
         /// <param name="sender"></param>
@@ -43,6 +57,25 @@ namespace Graighle.Triping.UWPClient.Scenario
             if(Window.Current.Content is Frame rootFrame)
             {
                 rootFrame.Navigate(typeof(ScenarioEditorMainPage));
+            }
+        }
+
+        /// <summary>
+        /// シナリオの詳細を開くボタンが押された処理。
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void OpenDetailButton_Click(object sender, RoutedEventArgs e)
+        {
+            var outline = this.selectingScenarioFrame.DataContext as ScenarioOutlineListItem;
+            if(outline == null)
+            {
+                return;
+            }
+
+            if(Window.Current.Content is Frame rootFrame)
+            {
+                rootFrame.Navigate(typeof(ScenarioEditorMainPage), outline.FileName);
             }
         }
 

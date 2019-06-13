@@ -32,7 +32,7 @@ namespace Graighle.Triping.UWPClient.Scenario.Models
                 var serialized = await fileOperator.ReadFromFile(fileName);
                 var outline = deserializer.DeserializeOutlineFromPortableFormat(serialized);
 
-                this.Items.Add(new ScenarioOutlineListItem(outline));
+                this.Items.Add(new ScenarioOutlineListItem(fileName, outline));
             }
 
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Items)));

@@ -15,7 +15,7 @@
             <SplitView.Pane>
                 <Grid>
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="80" />
+                        <RowDefinition Height="40" />
                         <RowDefinition Height="*" />
                     </Grid.RowDefinitions>
 
@@ -28,7 +28,7 @@
                         <AppBarButton Icon="Add" Click="AddScenarioButton_Click" />
                     </CommandBar>
 
-                    <ListView Grid.Row="1" ItemsSource="{Binding ScenarioList.Items}">
+                    <ListView Grid.Row="1" ItemsSource="{Binding ScenarioList.Items}" SelectionChanged="ScenarioListView_SelectionChanged">
                         <ListView.ItemTemplate>
                             <DataTemplate>
                                 <StackPanel Orientation="Vertical" VerticalAlignment="Center" Margin="12,0,0,0">
@@ -42,9 +42,32 @@
             </SplitView.Pane>
 
             <!-- シナリオ詳細 -->
-            <Frame>
-                <ScrollViewer>
-                </ScrollViewer>
+            <Frame x:Name="selectingScenarioFrame">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="40" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+
+                    <CommandBar Grid.Row="0" OverflowButtonVisibility="Collapsed">
+                        <AppBarButton x:Uid="ScenarioOpenDetailButton" Style="{StaticResource AppCommandButton}" Click="OpenDetailButton_Click"/>
+                        <AppBarSeparator/>
+                        <AppBarButton Icon="Download" />
+                    </CommandBar>
+
+                    <Frame Grid.Row="1">
+                        <ScrollViewer>
+                            <StackPanel>
+                                <!-- タイトル -->
+                                <TextBlock Text="{Binding Title}" Style="{StaticResource SectionTitleTextBlockStyle}" />
+
+                                <!-- 作者 -->
+                                <TextBlock x:Uid="ScenarioAuthorTextBlock" Style="{StaticResource DataLabelTextBlockStyle}"/>
+                                <TextBlock Text="{Binding Author}" Style="{StaticResource DataValueTextBlockStyle}"/>
+                            </StackPanel>
+                        </ScrollViewer>
+                    </Frame>
+                </Grid>
             </Frame>
         </SplitView>
     </Grid>

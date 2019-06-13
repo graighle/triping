@@ -30,17 +30,17 @@ namespace Graighle.Triping.UWPClient.Scenario.Editor
         /// シナリオファイルを読込む。
         /// </summary>
         /// <param name="fileName">シナリオファイルのファイル名。</param>
-        public void LoadScenario(string fileName)
+        public async Task LoadScenario(string fileName)
         {
             // ファイルから読込み。
-            //var reader = new ScenarioFileOperator();
-            //var serialized = reader.ReadFromFile(fileName);
+            var reader = new ScenarioFileOperator();
+            var serialized = await reader.ReadFromFile(fileName);
 
             // ポータブル形式を解析。
-            //var deserializer = new ScenarioPackageDeserializer();
-            //this.scenario = deserializer.DeserializeFromPortableFormat(serialized);
+            var deserializer = new ScenarioDeserializer();
+            this.scenario = deserializer.DeserializePackageFromPortableFormat(serialized);
 
-            //this.ScenarioEditor.ImportPackage(this.scenario);
+            this.ScenarioEditor.ImportPackage(this.scenario);
             this.scenarioFileName = fileName;
         }
 

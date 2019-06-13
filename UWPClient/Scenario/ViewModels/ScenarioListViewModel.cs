@@ -1,7 +1,7 @@
 ﻿using Graighle.Triping.UWPClient.Scenario.Models;
 using System.Threading.Tasks;
 
-namespace Graighle.Triping.UWPClient.Scenario
+namespace Graighle.Triping.UWPClient.Scenario.ViewModels
 {
     /// <summary>
     /// シナリオ一覧ページ用のViewModel。

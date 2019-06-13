@@ -9,6 +9,26 @@
         <!-- 変換 -->
         <converters:InverseBoolConverter x:Key="InverseBool"/>
 
+        <!--- セクションのタイトル -->
+        <Style x:Key="SectionTitleTextBlockStyle" TargetType="TextBlock" BasedOn="{StaticResource BaseTextBlockStyle}">
+            <Setter Property="FontSize" Value="24" />
+            <Setter Property="FontWeight" Value="Bold" />
+        </Style>
+
+        <!--- データのラベル -->
+        <Style x:Key="DataLabelTextBlockStyle" TargetType="TextBlock" BasedOn="{StaticResource BaseTextBlockStyle}">
+            <Setter Property="Foreground" Value="Gray" />
+            <Setter Property="Height" Value="20"/>
+            <Setter Property="VerticalAlignment" Value="Bottom"/>
+            <Setter Property="Margin" Value="0,20,0,0"/>
+            <Setter Property="TextWrapping" Value="Wrap"/>
+        </Style>
+
+        <!--- データの値 -->
+        <Style x:Key="DataValueTextBlockStyle" TargetType="TextBlock" BasedOn="{StaticResource BaseTextBlockStyle}">
+            <Setter Property="Margin" Value="0,4,0,4"/>
+        </Style>
+
         <Style x:Key="EditorFormLabelTextBlock" TargetType="TextBlock" BasedOn="{StaticResource BaseTextBlockStyle}">
             <Setter Property="Foreground" Value="Gray"/>
             <Setter Property="Height" Value="20"/>
@@ -28,6 +48,11 @@
             <Setter Property="AcceptsReturn" Value="True"/>
             <Setter Property="TextWrapping" Value="Wrap"/>
             <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto"/>
+        </Style>
+
+        <!-- コマンドボタン -->
+        <Style x:Key="AppCommandButton" TargetType="AppBarButton">
+            <Setter Property="Height" Value="40"/>
         </Style>
     </Application.Resources>
 
